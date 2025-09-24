@@ -35,7 +35,7 @@ https://youtu.be/UK_OVKDRArs?si=G620QaGNjJOA0LGR
 
 ```bash
 sudo apt-get update -y
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo apt install npm -y
 sudo apt install nginx -y
@@ -61,8 +61,8 @@ it will ask you for your GitHub username and password. You can use a Personal Ac
 ### Step 6: Create Production Build
   ```bash
   npm run build
-  sudo mkdir /var/www/vhosts/frontend/
-  sudo cp -R build/ /var/www/vhosts/frontend/
+  sudo mkdir -p /var/www/vhosts/frontend/
+  sudo cp -R dist/ /var/www/vhosts/frontend/
   ```
 ### Step 7: Create Nginx File
 with this command, you can check if already a default nginx file exists. You have to remove it.
@@ -75,7 +75,7 @@ sudo rm -rf default
 
 - Create a configuration file for Nginx using the following command:
   ```bash
-  sudo vim /etc/nginx/sites-available/<nginx-file-name>
+  sudo nano /etc/nginx/sites-available/kgn-fe
   ```
 
 - Paste the provided server configuration inside the file created.
